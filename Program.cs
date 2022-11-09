@@ -36,6 +36,18 @@ namespace NumberGuesser
                 //Get User Input
                 string input = Console.ReadLine();
 
+                //Check for number
+                if (!int.TryParse(input, out guess))
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+
+                    Console.WriteLine("Please enter a number", appName, appAuthor, appVersion);
+
+                    Console.ResetColor();
+
+                    continue;
+                }
+
                 guess = Int32.Parse(input);
 
                 //Match guess to correctNumber
